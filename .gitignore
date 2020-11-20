@@ -1,0 +1,8 @@
+# Project exclude paths
+/springsecurity-cloud-eureka/target/
+/springsecurity-cloud-gateway/target/
+/springsecurity-cloud-oauth2-base/target/
+/springsecurity-cloud-oauth2-resource-product/target/
+/springsecurity-cloud-oauth2-server/target/
+/springsecurity-cloud-oauth2-sso-client1/target/
+/springsecurity-cloud-oauth2-sso-client2/target/

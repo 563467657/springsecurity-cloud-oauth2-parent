@@ -1,0 +1,45 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /auth #应用名
+
+eureka:
+  client:
+    register-with-eureka: true  #服务注册开关
+    fetch-registry: true  #服务发现开关
+    service-url:  #注册到哪一个Eureka Server服务注册中心，多个中间用逗号分隔
+      defaultZone: http://localhost:6001/eureka
+  instance:
+    instance-id: ${spring.application.name}:${server.port}  #指定实例ID，页面会显示主机名
+    prefer-ip-address: true #访问路径可以显示ip地址
+
+#spring:
+#  redis:
+#    host: 111.229.124.80
+#    port: 6379
+#    password: 112221987
+spring:
+  application:
+    name: auth-server #Eureka页面显示
+  datasource:
+    username: root
+    password: password
+    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8
+    type: com.alibaba.druid.pool.DruidDataSource
+    #数据源其他配置，在DruidConfig配置类中手动绑定
+    initialSize: 8
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+
+mybatis-plus:
+  # 指定实体类所在的包
+  type-aliases-package: com.securitytest.oauth2.web.entities
+# 日志级别，会打印sql语句
+logging:
+  level:
+    com.securitytest.oauth2.web.mapper: debug
+
